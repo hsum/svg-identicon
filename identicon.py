@@ -19,7 +19,7 @@ def _rect(x, y, width, height, color):
 
 
 def identicon(str_, size, background='#fff'):
-    digest = int(md5(str_).hexdigest(), 16)
+    digest = int(md5(str_.encode('utf-8')).hexdigest(), 16)
     color = '#{:06x}'.format(digest & 0xffffff)
     digest, body = digest >> 24, ''
     x = y = 0
